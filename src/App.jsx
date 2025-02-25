@@ -1,7 +1,7 @@
-import Card from "./components/Fragments/Card";
+import Main from "./pages/main";
 
 function App() {
-  return <Card />;
+  return <Main />;
 }
 
 export default App;
