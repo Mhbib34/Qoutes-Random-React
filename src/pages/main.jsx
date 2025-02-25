@@ -29,7 +29,7 @@ export default function Main() {
     );
   }
   return (
-    <div className="h-screen flex justify-center items-center flex-col lg:px-0 px-5 ">
+    <div className="h-screen flex gap-2 justify-center items-center flex-col lg:px-0 px-5 ">
       <Card data={data} onClick={fetchData} />
     </div>
   );
