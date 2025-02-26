@@ -1,5 +1,6 @@
 import Card from "../components/Fragments/Card";
 import { useState, useEffect } from "react";
+import Navbar from "../components/layouts/Navbar";
 
 export default function Main() {
   const [data, setData] = useState(null);
@@ -29,8 +30,11 @@ export default function Main() {
     );
   }
   return (
-    <div className="h-screen flex gap-2 justify-center items-center flex-col lg:px-0 px-5 ">
-      <Card data={data} onClick={fetchData} />
+    <div className="relative px-2 lg:px-0">
+      <Navbar />
+      <div className="mt-20  flex gap-2 justify-center items-center flex-col lg:px-0 px-5 ">
+        <Card data={data} onClick={fetchData} />
+      </div>
     </div>
   );
 }
