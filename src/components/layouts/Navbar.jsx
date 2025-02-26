@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import HamburgerMenuPages from "../Fragments/HamburgerMenuPages";
 import NavLink from "../Fragments/NavLink";
 import HamburgerMenu from "../Common/HamburgerMenu";
@@ -17,7 +18,19 @@ export default function Navbar() {
         <NavLink />
         <HamburgerMenu onClick={toggleMenu} />
       </header>
-      <HamburgerMenuPages className={`${nav ? "block" : "hidden"}`} />
+      <AnimatePresence>
+        {nav && (
+          <motion.div
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="relative -top-0 left-0 w-full bg-[#2b2b2b] shadow-lg"
+          >
+            <HamburgerMenuPages className={`${nav ? "block" : "hidden"}`} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
