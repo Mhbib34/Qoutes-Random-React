@@ -12,7 +12,7 @@ export default function NavLink() {
         </li>
         <a href="#footer">
           <li className="text-sm lg:text-[16px]  rounded-md hover:text-gray-400 transition-all duration-200 ease-in cursor-pointer text-white">
-            About us
+            About
           </li>
         </a>
       </ul>

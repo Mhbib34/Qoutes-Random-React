@@ -23,7 +23,7 @@ export default function Footer({ id }) {
             </a>
           </div>
         </div>
-        <nav className="flex  gap-2 flex-col space-x-6 mt-4 md:mt-4">
+        <nav className="flex  gap-2 flex-col  mt-4 md:mt-4 text-center justify-center lg:items-start ">
           <a href="#" className="hover:text-gray-400 transition">
             Home
           </a>
