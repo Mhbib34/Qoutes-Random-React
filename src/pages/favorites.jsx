@@ -1,8 +1,8 @@
-import { useState } from "react";
 import Card from "../components/Fragments/Card";
 import SocialMediaLinks from "../components/Common/SocialMediaLinks";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
+import { useState } from "react";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState(() => {
@@ -10,10 +10,23 @@ export default function Favorites() {
     return storedFavorites;
   });
 
+  const updateLocalStorage = (data) => {
+    localStorage.setItem("favorites", JSON.stringify(data));
+  };
+  function handleDeletedAll() {
+    setFavorites([]);
+    updateLocalStorage([]);
+  }
+
+  function handleDeletedItem(id) {
+    const filteredData = favorites.filter((item) => item._id !== id);
+    setFavorites(filteredData);
+    updateLocalStorage(filteredData);
+  }
   return (
     <>
-      <div className="relative px-3 lg:px-10 ">
-        <Navbar url="/" hamburgerHome="/" />
+      <div className="relative px-3 lg:px-10 min-h-screen">
+        <Navbar url="/" hamburgerHome="/" onClick={handleDeletedAll} />
         <h1 className="text-center text-3xl mt-10 text-primary font-bold italic">
           Your Favorites Quotes
         </h1>
@@ -26,6 +39,9 @@ export default function Favorites() {
             >
               <div className="absolute h-full w-full  top-0 left-0 rounded-lg bg-linear-to-b from-primary to-transparent opacity-0 hover:opacity-100 flex justify-center items-center gap-2 transition-opacity duration-300">
                 <SocialMediaLinks data={item} />
+                <div onClick={() => handleDeletedItem(item._id)}>
+                  <i className="bx bx-message-square-x text-lg py-1.5 px-3 text-white bg-primary rounded-lg cursor-pointer"></i>
+                </div>
               </div>
             </Card>
           ))}
