@@ -26,7 +26,12 @@ export default function Favorites() {
   return (
     <>
       <div className="relative px-3 lg:px-10 min-h-screen">
-        <Navbar url="/" hamburgerHome="/" onClick={handleDeletedAll} />
+        <Navbar
+          url="/"
+          hamburgerHome="/"
+          onClick={handleDeletedAll}
+          text="Deleted All"
+        />
         <h1 className="text-center text-3xl mt-10 text-primary font-bold italic">
           Your Favorites Quotes
         </h1>

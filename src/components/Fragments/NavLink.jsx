@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function NavLink({ Favorites, url }) {
+export default function NavLink({ Favorites, url, onClick, text }) {
   return (
     <nav className="">
       <ul className="lg:flex hidden gap-3 justify-center ">
@@ -17,6 +17,11 @@ export default function NavLink({ Favorites, url }) {
         <a href="#footer">
           <li className="text-sm lg:text-[16px]  rounded-md hover:text-gray-400 transition-all duration-200 ease-in cursor-pointer text-white">
             About
+          </li>
+        </a>
+        <a onClick={onClick}>
+          <li className="text-sm lg:text-[16px]  rounded-md hover:text-gray-400 transition-all duration-200 ease-in cursor-pointer text-white">
+            {text}
           </li>
         </a>
       </ul>

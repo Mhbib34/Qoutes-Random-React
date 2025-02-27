@@ -4,7 +4,13 @@ import HamburgerMenuPages from "../Fragments/HamburgerMenuPages";
 import NavLink from "../Fragments/NavLink";
 import HamburgerMenu from "../Common/HamburgerMenu";
 
-export default function Navbar({ Favorites, url, hamburgerHome, onClick }) {
+export default function Navbar({
+  Favorites,
+  url,
+  hamburgerHome,
+  onClick,
+  text,
+}) {
   const [nav, setNav] = useState(false);
   function toggleMenu() {
     setNav(!nav);
@@ -15,7 +21,12 @@ export default function Navbar({ Favorites, url, hamburgerHome, onClick }) {
         <a className="text-white font-medium italic lg:text-xl" href="#">
           InspireMe
         </a>
-        <NavLink Favorites={Favorites} url={url} />
+        <NavLink
+          Favorites={Favorites}
+          url={url}
+          onClick={onClick}
+          text={text}
+        />
         <HamburgerMenu onClick={toggleMenu} />
       </header>
       <AnimatePresence>

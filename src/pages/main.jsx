@@ -68,6 +68,7 @@ export default function Main() {
         <Navbar Favorites="Favorites" url="#" hamburgerHome="#" />
         <div className="mt-14  flex gap-2 justify-center items-center flex-col   ">
           <Card
+            text="Quotes Of The Day"
             data={data}
             className="border justify-between gap-2 rounded-lg shadow-[0_6px_8px_rgba(52,116,134,0.4)] hover:shadow-[0_10px_15px_rgba(52,116,134,0.6)] transition-shadow duration-300 ease-in-out p-4 flex lg:w-[50%] flex-col items-center"
           />
