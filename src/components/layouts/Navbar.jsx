@@ -25,7 +25,7 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="relative -top-0 left-0 w-full bg-[#2b2b2b] shadow-lg"
+            className=" sticky top-12 left-0 w-full bg-[#2b2b2b] shadow-lg "
           >
             <HamburgerMenuPages className={`${nav ? "block" : "hidden"}`} />
           </motion.div>
