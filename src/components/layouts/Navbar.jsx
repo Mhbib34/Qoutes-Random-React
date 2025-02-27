@@ -4,7 +4,7 @@ import HamburgerMenuPages from "../Fragments/HamburgerMenuPages";
 import NavLink from "../Fragments/NavLink";
 import HamburgerMenu from "../Common/HamburgerMenu";
 
-export default function Navbar() {
+export default function Navbar({ Favorites, url, hamburgerHome }) {
   const [nav, setNav] = useState(false);
   function toggleMenu() {
     setNav(!nav);
@@ -15,7 +15,7 @@ export default function Navbar() {
         <a className="text-white font-medium italic lg:text-xl" href="#">
           InspireMe
         </a>
-        <NavLink />
+        <NavLink Favorites={Favorites} url={url} />
         <HamburgerMenu onClick={toggleMenu} />
       </header>
       <AnimatePresence>
@@ -27,7 +27,7 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className=" sticky top-12 left-0 w-full bg-linear-to-b from-primary z-10 to-secondary"
           >
-            <HamburgerMenuPages />
+            <HamburgerMenuPages url={hamburgerHome} />
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,4 +1,4 @@
-export default function Footer({ id }) {
+export default function Footer({ id, url }) {
   return (
     <footer className="bg-[#2b2b2b] text-white py-6 mt-10" id={id}>
       <div className="container mx-auto px-6 md:px-12 lg:px-24">
@@ -27,7 +27,7 @@ export default function Footer({ id }) {
           <a href="#" className="hover:text-gray-400 transition">
             Home
           </a>
-          <a href="#" className="hover:text-gray-400 transition">
+          <a href={url} className="hover:text-gray-400 transition">
             Favorites
           </a>
           <a href="#" className="hover:text-gray-400 transition">
