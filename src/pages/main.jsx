@@ -4,6 +4,7 @@ import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 import SocialMediaLinks from "../components/Common/SocialMediaLinks";
 import RepeatButton from "../components/Common/RepeatButton";
+import Swal from "sweetalert2";
 
 export default function Main() {
   const [data, setData] = useState(null);
@@ -52,6 +53,23 @@ export default function Main() {
       }
       return prev;
     });
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: "success",
+      iconColor: "#347486",
+      title: "Quotes Added Successfully",
+    });
   }
 
   if (!data) {
@@ -65,7 +83,12 @@ export default function Main() {
   return (
     <>
       <div className="relative px-3 lg:px-10">
-        <Navbar Favorites="Favorites" url="#" hamburgerHome="#" />
+        <Navbar
+          Favorites="Favorites"
+          url="#"
+          hamburgerHome="#"
+          classHamburger="hidden"
+        />
         <div className="mt-14  flex gap-2 justify-center items-center flex-col   ">
           <Card
             text="Quotes Of The Day"

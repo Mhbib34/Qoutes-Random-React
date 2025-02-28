@@ -10,6 +10,7 @@ export default function Navbar({
   hamburgerHome,
   onClick,
   text,
+  classHamburger,
 }) {
   const [nav, setNav] = useState(false);
   function toggleMenu() {
@@ -18,7 +19,7 @@ export default function Navbar({
   return (
     <>
       <header className="flex justify-between items-center bg-linear-to-b from-secondary to-primary lg:w-[60%] py-3 mx-auto sticky top-1 z-1 px-5 lg:px-8 rounded-md">
-        <a className="text-white font-medium italic lg:text-xl" href="#">
+        <a className="text-white font-medium italic lg:text-xl" href="/">
           InspireMe
         </a>
         <NavLink
@@ -38,7 +39,11 @@ export default function Navbar({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className=" sticky top-12 left-0 w-full bg-linear-to-b from-primary z-10 to-secondary"
           >
-            <HamburgerMenuPages url={hamburgerHome} onClick={onClick} />
+            <HamburgerMenuPages
+              url={hamburgerHome}
+              onClick={onClick}
+              classHamburger={classHamburger}
+            />
           </motion.div>
         )}
       </AnimatePresence>

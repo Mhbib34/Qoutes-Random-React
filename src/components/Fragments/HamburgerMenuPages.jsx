@@ -1,6 +1,9 @@
-import Button from "../Common/Button";
-
-export default function HamburgerMenuPages({ className, url, onClick }) {
+export default function HamburgerMenuPages({
+  className,
+  url,
+  onClick,
+  classHamburger,
+}) {
   return (
     <div className={` ${className}`}>
       <ul className="flex text-center flex-col gap-3 py-4 px-3 text-white ">
@@ -13,7 +16,9 @@ export default function HamburgerMenuPages({ className, url, onClick }) {
         <a href="#footer">
           <li>About</li>
         </a>
-        <Button text="Delete All" onClick={onClick} />
+        <a onClick={onClick} className={classHamburger}>
+          <li>Deleted All</li>
+        </a>
       </ul>
     </div>
   );

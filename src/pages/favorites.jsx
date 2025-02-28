@@ -3,6 +3,7 @@ import SocialMediaLinks from "../components/Common/SocialMediaLinks";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState(() => {
@@ -13,16 +14,59 @@ export default function Favorites() {
   const updateLocalStorage = (data) => {
     localStorage.setItem("favorites", JSON.stringify(data));
   };
-  function handleDeletedAll() {
-    setFavorites([]);
-    updateLocalStorage([]);
-  }
 
-  function handleDeletedItem(id) {
-    const filteredData = favorites.filter((item) => item._id !== id);
-    setFavorites(filteredData);
-    updateLocalStorage(filteredData);
-  }
+  const handleDeletedAll = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#347486",
+      cancelButtonColor: "#2b2b2b",
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (result.isConfirmed) {
+      setFavorites([]);
+      updateLocalStorage([]);
+
+      await Swal.fire({
+        title: "Deleted!",
+        text: "Your all file has been deleted.",
+        icon: "success",
+        iconColor: "#347486",
+        confirmButtonColor: "#347486",
+      });
+    }
+  };
+  const handleDeletedItem = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#347486",
+      cancelButtonColor: "#2b2b2b",
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (result.isConfirmed) {
+      setFavorites((prevFavorites) => {
+        const filteredData = prevFavorites.filter((item) => item._id !== id);
+        updateLocalStorage(filteredData);
+        return filteredData;
+      });
+
+      await Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success",
+        iconColor: "#347486",
+        confirmButtonColor: "#347486",
+      });
+    }
+  };
+
   return (
     <>
       <div className="relative px-3 lg:px-10 min-h-screen">
