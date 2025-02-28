@@ -1,3 +1,5 @@
+import SocialMediaIcon from "../Common/SocialMediaIcon";
+
 export default function SocialMediaLinks({ data }) {
   return (
     <>
@@ -7,7 +9,7 @@ export default function SocialMediaLinks({ data }) {
         )} ~ ${data.author}`}
         target="_blank"
       >
-        <i className="bx bxl-twitter text-white text-lg bg-[#1DA1F2] py-1.5 px-3 rounded-md"></i>
+        <SocialMediaIcon className="bxl-twitter bg-[#1DA1F2] py-1.5 px-3 rounded-md text-lg " />
       </a>
       <a
         href={`https://wa.me/?text=${encodeURIComponent(data.content)} ~ ${
@@ -15,7 +17,7 @@ export default function SocialMediaLinks({ data }) {
         }`}
         target="_blank"
       >
-        <i className="bx bxl-whatsapp text-white text-lg bg-[#25D366] py-1.5 px-3 rounded-md"></i>
+        <SocialMediaIcon className="bxl-whatsapp bg-[#25D366] py-1.5 px-3 rounded-md text-lg " />
       </a>
     </>
   );

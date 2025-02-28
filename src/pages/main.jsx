@@ -2,9 +2,10 @@ import Card from "../components/Fragments/Card";
 import { useState, useEffect } from "react";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
-import SocialMediaLinks from "../components/Common/SocialMediaLinks";
+import SocialMediaLinks from "../components/Fragments/SocialMediaLinks";
 import RepeatButton from "../components/Common/RepeatButton";
 import Swal from "sweetalert2";
+import LoadingAnimations from "../components/Fragments/LoadingAnimations";
 
 export default function Main() {
   const [data, setData] = useState(null);
@@ -73,11 +74,7 @@ export default function Main() {
   }
 
   if (!data) {
-    return (
-      <div className="w-full flex h-screen justify-center items-center">
-        <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-blue-500 border-solid border-r-transparent"></div>
-      </div>
-    );
+    return <LoadingAnimations />;
   }
 
   return (

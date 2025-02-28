@@ -1,5 +1,5 @@
 import Card from "../components/Fragments/Card";
-import SocialMediaLinks from "../components/Common/SocialMediaLinks";
+import SocialMediaLinks from "../components/Fragments/SocialMediaLinks";
 import Navbar from "../components/layouts/Navbar";
 import Footer from "../components/layouts/Footer";
 import { useState } from "react";
